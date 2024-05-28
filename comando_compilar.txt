@@ -1,0 +1,1 @@
+gcc main.c ./libs/carta-tad.c ./libs/deck-tad.c ./libs/player-tad.c ./libs/turno-tad.c ./libs/terminal.c ./libs/menu.c -o game
