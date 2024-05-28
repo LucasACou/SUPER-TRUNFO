@@ -188,8 +188,6 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
 }
 
 void loopTurnoComp(Player *player1, Player *player2, Player *player3) {
-
-  //ola op
   
   Player *vetor_players[] = {player1, player2, player3};
   srand(time(0));
