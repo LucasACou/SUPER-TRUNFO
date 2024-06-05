@@ -207,5 +207,19 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3) {
   int fim_de_jogo = 0;
   int x = 15;
   while (fim_de_jogo == 0) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   }
 }

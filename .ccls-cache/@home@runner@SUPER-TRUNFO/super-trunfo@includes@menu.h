@@ -5,5 +5,6 @@
 
 void printLogo();
 void menu();
+void jogar();
 
 #endif // MENU_H
