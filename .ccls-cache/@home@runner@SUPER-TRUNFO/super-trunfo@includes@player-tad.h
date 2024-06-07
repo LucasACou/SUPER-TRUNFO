@@ -14,8 +14,8 @@ typedef struct player {
 Player *criarPlayer(char *nome, Deck *deck);
 Carta *playerCompra(Player *player);
 void menuAtributos();
-Player *max(Player *player1, Player *player2, int atributo);
+Player *max(Player *player1, Player *player2, char atributo);
 void compararAtributos(Player *player1, Player *player2, Player *player3,
-                       int atributo);
+                       char atributo);
 
 #endif // PESSOA_H

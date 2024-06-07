@@ -83,27 +83,35 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
     playerCompra(player2);
     playerCompra(player3);
 
-    system("clear");
+    char atributo;
 
-    x = 15;
-    for (int i = 0; i < MAX_PLAYERS; i++) {
-      Player *player_nao_atual = vetor_players[i];
-      if (player_nao_atual != player_atual) {
-        printCartaVirada(x, 1);
-        mover_cursor_xy(x, 19);
-        printf("%s\n", player_nao_atual->nome);
-        x += 50;
+    do{
+        system("clear");
+
+      x = 15;
+      // printa as cartas viradas dos players não atuais
+      for (int i = 0; i < MAX_PLAYERS; i++) { 
+        Player *player_nao_atual = vetor_players[i];
+        if (player_nao_atual != player_atual) {
+          printCartaVirada(x, 1);
+          mover_cursor_xy(x, 19);
+          printf("%s\n", player_nao_atual->nome);
+          x += 50;
+        }
       }
-    }
+      
+      //printar carta do players atual
+      printCarta(player_atual->carta_atual, 40, 22);
+      mover_cursor_xy(40, 40);
+      printf("%s\n", player_atual->nome);
 
-    printCarta(player_atual->carta_atual, 40, 22);
-    mover_cursor_xy(40, 40);
-    printf("%s\n", player_atual->nome);
+      
+      menuAtributos();
+      scanf("%c", &atributo);
+      
+    }while(atributo != '1' && atributo != '2' && atributo != '3' && atributo != '4' && atributo != '5');
 
-    int atributo;
-    menuAtributos();
-    scanf("%d", &atributo);
-
+      
     system("clear");
     mover_cursor_xy(1, 41);
     compararAtributos(player1, player2, player3, atributo);
@@ -188,7 +196,7 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
 }
 
 void loopTurnoComp(Player *player1, Player *player2, Player *player3) {
-  
+
   Player *vetor_players[] = {player1, player2, player3};
   srand(time(0));
   for (int i = 0; i < MAX_PLAYERS; i++) {
@@ -207,19 +215,5 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3) {
   int fim_de_jogo = 0;
   int x = 15;
   while (fim_de_jogo == 0) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   }
 }
