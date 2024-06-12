@@ -149,8 +149,8 @@ void jogar() {
 
   char opcoes_dificuldade;
 
-  printf("[1] - Singleplay\n");
-  printf("[2] - Multiplay\n");
+  printf("[1] - Singleplayer\n");
+  printf("[2] - Multiplayer\n");
   printf("\nEscolha alguma opção:\n");
   scanf("%s", &opcoes_dificuldade);
 

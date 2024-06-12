@@ -37,7 +37,6 @@ Carta *criarCarta(char *tipo, float mobilidade, int vida, int ataque,
 // MODELAGEM CARTA
 void printVazio();
 void printNome(char *tipo, char *nome);
-void printFloatInfoLine(char *atributo, float value, char *color, char *icone);
 void printIntInfoLine(char *atributo, int value, char *color, char *icone);
 void modeloCartaInteira(char *nome, Carta *carta, int x, int y);
 
