@@ -28,13 +28,6 @@ void printNome(char *tipo, char *nome) {
                  " " RESET "\n",
          tipo, nome);
 }
-
-void printFloatInfoLine(char *atributo, float value, char *color, char *icone) {
-  printf(BG_GRAY " " BG_BLACK " %s%s" FG_WHITE " %-11s " FG_ORANGE
-                 " %4.1f " BG_GRAY "   " RESET "\n",
-         color, icone, atributo, value);
-}
-
 void printIntInfoLine(char *atributo, int value, char *color, char *icone) {
   printf(BG_GRAY " " BG_BLACK " %s%s" FG_WHITE " %-11s " FG_ORANGE
                  " %4d " BG_GRAY "   " RESET "\n",
@@ -59,7 +52,7 @@ void modeloCartaInteira(char *nome, Carta *carta, int x, int y) {
   mover_cursor_xy(x, y++);
   printVazio();
   mover_cursor_xy(x, y++);
-  printFloatInfoLine("MOBILIDADE", carta->mobilidade, FG_BLUE, "\u26F8");
+  printIntInfoLine("MOBILIDADE", carta->mobilidade, FG_BLUE, "\u26F8");
   mover_cursor_xy(x, y++);
   printVazio();
   mover_cursor_xy(x, y++);
@@ -71,11 +64,11 @@ void modeloCartaInteira(char *nome, Carta *carta, int x, int y) {
   mover_cursor_xy(x, y++);
   printVazio();
   mover_cursor_xy(x, y++);
-  printFloatInfoLine("CURA", carta->cura, FG_GREEN, "\u2720");
+  printIntInfoLine("CURA", carta->cura, FG_GREEN, "\u2720");
   mover_cursor_xy(x, y++);
   printVazio();
   mover_cursor_xy(x, y++);
-  printFloatInfoLine("ULTIMATE", carta->ultimate, FG_YELLOW, "\u2605");
+  printIntInfoLine("ULTIMATE", carta->ultimate, FG_YELLOW, "\u2605");
   mover_cursor_xy(x, y++);
   printVazio();
 }
@@ -85,46 +78,46 @@ Carta **criarVetorCartas() {
   Carta **vetorCartas = malloc(MAX_CARTAS * sizeof(Carta *));
   if (vetorCartas != NULL) {
     //--------------------------------MB   VD   AT  CR   ULT
-    vetorCartas[0] = criarCarta("SS", 8.7, 250, 40, 3.6, 10.0);  // Echo
-    vetorCartas[1] = criarCarta("A1", 5.7, 200, 45, 3.9, 3.0);   // Widowmaker
-    vetorCartas[2] = criarCarta("A2", 4.1, 250, 50, 3.6, 7.2);   // Ashe
-    vetorCartas[3] = criarCarta("A3", 1.7, 250, 25, 8.9, 6.2);   // Ana
-    vetorCartas[4] = criarCarta("B1", 4.8, 250, 40, 4.8, 8.8);   // Sombra
-    vetorCartas[5] = criarCarta("B2", 1.5, 550, 35, 4.6, 7.0);   // Zarya
-    vetorCartas[6] = criarCarta("B3", 7.6, 250, 40, 9.2, 7.4);   // Moira
-    vetorCartas[7] = criarCarta("C1", 6.4, 300, 50, 5.3, 9.4);   // Reaper
-    vetorCartas[8] = criarCarta("C2", 7.8, 250, 35, 7.8, 8.2);   // Lucio
-    vetorCartas[9] = criarCarta("C3", 9.0, 250, 45, 3.6, 7.0);   // Genji
-    vetorCartas[10] = criarCarta("D1", 5.2, 200, 40, 6.0, 6.8);  // Brigitte
-    vetorCartas[11] = criarCarta("D2", 8.0, 500, 40, 3.2, 9.4);  // D.VA
-    vetorCartas[12] = criarCarta("D3", 1.5, 600, 35, 3.2, 8.4);  // Sigma
-    vetorCartas[13] = criarCarta("E1", 6.2, 525, 40, 5.2, 7.8);  // Mauga
-    vetorCartas[14] = criarCarta("E2", 2.2, 300, 35, 6.9, 8.8);  // Mei
-    vetorCartas[15] = criarCarta("E3", 7.4, 250, 25, 10.0, 5.9); // Mercy
-    vetorCartas[16] = criarCarta("F1", 6.7, 650, 40, 3.2, 7.3);  // Reinhardt
-    vetorCartas[17] = criarCarta("F2", 8.3, 175, 35, 4.8, 8.1);  // Tracer
-    vetorCartas[18] = criarCarta("F3", 5.0, 525, 40, 5.5, 6.7);  // RainhaJunker
-    vetorCartas[19] = criarCarta("G1", 7.1, 250, 30, 8.6, 5.8);  // Kiriko
-    vetorCartas[20] = criarCarta("G2", 3.8, 275, 45, 3.2, 8.0);  // Cassidy
-    vetorCartas[21] = criarCarta("G3", 9.1, 525, 40, 3.2, 6.2);  // Doomfist
-    vetorCartas[22] = criarCarta("H1", 6.2, 250, 50, 3.2, 8.7);  // Hanzo
-    vetorCartas[23] = criarCarta("H2", 2.0, 175, 45, 4.4, 8.0);  // Zenyatta
-    vetorCartas[24] = criarCarta("H3", 5.8, 250, 50, 3.2, 7.4);  // Junkrat
-    vetorCartas[25] = criarCarta("I1", 5.1, 225, 30, 7.5, 7.9);  // Lifeweaver
-    vetorCartas[26] = criarCarta("I2", 4.4, 250, 50, 4.9, 6.9);  // Soldado 76
-    vetorCartas[27] = criarCarta("I3", 4.0, 250, 35, 7.7, 7.7);  // Illari
-    vetorCartas[28] = criarCarta("J1", 1.5, 250, 50, 3.2, 5.1);  // Bastion
-    vetorCartas[29] = criarCarta("J2", 1.5, 425, 40, 3.2, 8.4);  // Ramatra
-    vetorCartas[30] = criarCarta("J3", 4.9, 250, 45, 3.2, 4.3);  // Sojourn
-    vetorCartas[31] = criarCarta("K1", 3.3, 250, 45, 3.2, 6.2);  // Symmetra
-    vetorCartas[32] = criarCarta("K2", 4.9, 375, 40, 3.2, 5.8);  // Winston
+    vetorCartas[0] = criarCarta("SS", 9, 5, 8, 3, 10);  // Echo
+    vetorCartas[1] = criarCarta("A1", 6, 3, 9, 3, 3);   // Widowmaker
+    vetorCartas[2] = criarCarta("A2", 4, 4, 8, 3, 7);   // Ashe
+    vetorCartas[3] = criarCarta("A3", 2, 4, 3, 9, 6);   // Ana
+    vetorCartas[4] = criarCarta("B1", 5, 4, 7, 5, 8);   // Sombra
+    vetorCartas[5] = criarCarta("B2", 1, 8, 8, 4, 7);   // Zarya
+    vetorCartas[6] = criarCarta("B3", 8, 4, 7, 9, 7);   // Moira
+    vetorCartas[7] = criarCarta("C1", 6, 5, 9, 5, 9);   // Reaper
+    vetorCartas[8] = criarCarta("C2", 8, 4, 4, 8, 8);   // Lucio
+    vetorCartas[9] = criarCarta("C3", 9, 4, 8, 3, 6);   // Genji
+    vetorCartas[10] = criarCarta("D1", 5, 6, 5, 7, 6);  // Brigitte
+    vetorCartas[11] = criarCarta("D2", 8, 7, 7, 3, 9);  // D.VA
+    vetorCartas[12] = criarCarta("D3", 1, 8, 6, 3, 8);  // Sigma
+    vetorCartas[13] = criarCarta("E1", 6, 7, 7, 5, 8);  // Mauga
+    vetorCartas[14] = criarCarta("E2", 3, 5, 6, 7, 8);  // Mei
+    vetorCartas[15] = criarCarta("E3", 7, 4, 2, 10, 5); // Mercy
+    vetorCartas[16] = criarCarta("F1", 6, 10, 6, 3, 7); // Reinhardt
+    vetorCartas[17] = criarCarta("F2", 8, 3, 7, 4, 7);  // Tracer
+    vetorCartas[18] = criarCarta("F3", 5, 6, 6, 4, 6);  // RainhaJunker
+    vetorCartas[19] = criarCarta("G1", 7, 4, 4, 8, 5);  // Kiriko
+    vetorCartas[20] = criarCarta("G2", 3, 4, 8, 3, 8);  // Cassidy
+    vetorCartas[21] = criarCarta("G3", 9, 7, 8, 3, 6);  // Doomfist
+    vetorCartas[22] = criarCarta("H1", 6, 3, 9, 3, 8);  // Hanzo
+    vetorCartas[23] = criarCarta("H2", 2, 3, 7, 5, 8);  // Zenyatta
+    vetorCartas[24] = criarCarta("H3", 5, 4, 9, 3, 7);  // Junkrat
+    vetorCartas[25] = criarCarta("I1", 5, 3, 3, 7, 8);  // Lifeweaver
+    vetorCartas[26] = criarCarta("I2", 4, 3, 8, 5, 7);  // Soldado 76
+    vetorCartas[27] = criarCarta("I3", 4, 4, 5, 7, 6);  // Illari
+    vetorCartas[28] = criarCarta("J1", 1, 3, 10, 3, 5); // Bastion
+    vetorCartas[29] = criarCarta("J2", 1, 6, 6, 3, 7);  // Ramatra
+    vetorCartas[30] = criarCarta("J3", 5, 4, 8, 3, 4);  // Sojourn
+    vetorCartas[31] = criarCarta("K1", 3, 3, 8, 3, 6);  // Symmetra
+    vetorCartas[32] = criarCarta("K2", 5, 6, 6, 3, 5);  // Winston
   }
   return vetorCartas;
 }
 
 // Embaralhar Vetor de Cartas
 void embaralhar(Carta **vetorcartas) {
-  
+
   for (int i = 0; i < MAX_CARTAS; i++) {
     srand(time(0));
     int j = rand() % MAX_CARTAS;
@@ -240,44 +233,59 @@ void printCarta(Carta *carta, int x, int y) {
   }
 }
 
-void print0() {
-  printf(BG_WHITE "                         " RESET "\n");
-}
-void print1(){
-  printf(BG_ORANGE "  " BG_GRAY "                     " BG_ORANGE "  " RESET "\n");
+void print0() { printf(BG_WHITE "                         " RESET "\n"); }
+void print1() {
+  printf(BG_ORANGE "  " BG_GRAY "                     " BG_ORANGE "  " RESET
+                   "\n");
 }
 void print2() {
-  printf(BG_ORANGE " " BG_WHITE "                       " BG_ORANGE " " RESET "\n");
+  printf(BG_ORANGE " " BG_WHITE "                       " BG_ORANGE " " RESET
+                   "\n");
 }
 void print3() {
-  printf(BG_WHITE " "BG_GRAY" "BG_WHITE"         "BG_GRAY" "BG_WHITE" "BG_GRAY" "BG_WHITE"         "BG_GRAY" "BG_WHITE" " RESET "\n");
+  printf(BG_WHITE " " BG_GRAY " " BG_WHITE "         " BG_GRAY " " BG_WHITE
+                  " " BG_GRAY " " BG_WHITE "         " BG_GRAY " " BG_WHITE
+                  " " RESET "\n");
 }
 void print4() {
-  printf(BG_WHITE "  "BG_GRAY" "BG_WHITE"        "BG_GRAY" "BG_WHITE" "BG_GRAY" "BG_WHITE"        "BG_GRAY" "BG_WHITE"  " RESET "\n");
+  printf(BG_WHITE "  " BG_GRAY " " BG_WHITE "        " BG_GRAY " " BG_WHITE
+                  " " BG_GRAY " " BG_WHITE "        " BG_GRAY " " BG_WHITE
+                  "  " RESET "\n");
 }
 void print5() {
-  printf(BG_WHITE "   "BG_GRAY"  "BG_WHITE"               "BG_GRAY"  "BG_WHITE"   " RESET "\n");
+  printf(BG_WHITE "   " BG_GRAY "  " BG_WHITE "               " BG_GRAY
+                  "  " BG_WHITE "   " RESET "\n");
 }
 void print6() {
-  printf(BG_WHITE "     "BG_ORANGE"   "BG_WHITE"         "BG_ORANGE"   "BG_WHITE"     " RESET "\n");
+  printf(BG_WHITE "     " BG_ORANGE "   " BG_WHITE "         " BG_ORANGE
+                  "   " BG_WHITE "     " RESET "\n");
 }
 void print7(char *color) {
-  printf(BG_WHITE "        %s         "BG_WHITE"        " RESET "\n",color);
+  printf(BG_WHITE "        %s         " BG_WHITE "        " RESET "\n", color);
 }
-void print8() { 
-  printf(BG_WHITE "     "BG_GRAY"    "BG_WHITE"       "BG_GRAY"    "BG_WHITE"     " RESET "\n");
+void print8() {
+  printf(BG_WHITE "     " BG_GRAY "    " BG_WHITE "       " BG_GRAY
+                  "    " BG_WHITE "     " RESET "\n");
 }
 void print9() {
-  printf(BG_WHITE "   "BG_GRAY"  "BG_WHITE"  "BG_GRAY"   "BG_WHITE"     "BG_GRAY"   "BG_WHITE"  "BG_GRAY"  "BG_WHITE"   "RESET"\n");
+  printf(BG_WHITE "   " BG_GRAY "  " BG_WHITE "  " BG_GRAY "   " BG_WHITE
+                  "     " BG_GRAY "   " BG_WHITE "  " BG_GRAY "  " BG_WHITE
+                  "   " RESET "\n");
 }
 void print10() {
-  printf(BG_WHITE "  "BG_GRAY" "BG_WHITE"     "BG_GRAY"   "BG_WHITE"   "BG_GRAY"   "BG_WHITE"     "BG_GRAY" "BG_WHITE"  " RESET "\n");
+  printf(BG_WHITE "  " BG_GRAY " " BG_WHITE "     " BG_GRAY "   " BG_WHITE
+                  "   " BG_GRAY "   " BG_WHITE "     " BG_GRAY " " BG_WHITE
+                  "  " RESET "\n");
 }
 void print11() {
-  printf(BG_WHITE " "BG_GRAY" "BG_WHITE"       "BG_GRAY"   "BG_WHITE" "BG_GRAY"   "BG_WHITE"       "BG_GRAY" "BG_WHITE" " RESET "\n");
+  printf(BG_WHITE " " BG_GRAY " " BG_WHITE "       " BG_GRAY "   " BG_WHITE
+                  " " BG_GRAY "   " BG_WHITE "       " BG_GRAY " " BG_WHITE
+                  " " RESET "\n");
 }
 void print12() {
-  printf(BG_WHITE " "BG_GRAY" "BG_WHITE"        "BG_GRAY"  "BG_WHITE" "BG_GRAY"  "BG_WHITE"        "BG_GRAY" "BG_WHITE" " RESET "\n");
+  printf(BG_WHITE " " BG_GRAY " " BG_WHITE "        " BG_GRAY "  " BG_WHITE
+                  " " BG_GRAY "  " BG_WHITE "        " BG_GRAY " " BG_WHITE
+                  " " RESET "\n");
 }
 
 void printCartaVirada(int x, int y) {
