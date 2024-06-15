@@ -158,36 +158,32 @@ void jogar() {
   char nome_player2[50];
   char nome_player3[50];
 
+  Deck *baralho = criarDeck();
+  prencerDeck(baralho);
+
+  Deck *baralho_pessoal1 = criarDeck();
+  Deck *baralho_pessoal2 = criarDeck();
+  Deck *baralho_pessoal3 = criarDeck();
+  dividirDeck(baralho, baralho_pessoal1, baralho_pessoal2, baralho_pessoal3);
+
   switch (opcoes_dificuldade) {
 
   case '1':
     system("clear");
 
-    Deck *baralho = criarDeck();
-    prencerDeck(baralho);
-
-    Deck *baralho_pessoal1 = criarDeck();
-    Deck *baralho_pessoal2 = criarDeck();
-    Deck *baralho_pessoal3 = criarDeck();
-    dividirDeck(baralho, baralho_pessoal1, baralho_pessoal2, baralho_pessoal3);
-
     printf("\nEntre com nome do player 1\n");
     scanf("%s%*c", nome_player1);
     strcpy(nome_player2, "Comp1");
     strcpy(nome_player3, "Comp2");
+
+    Player *player1 = criarPlayer(nome_player1, baralho_pessoal1);
+    Player *player2 = criarPlayer(nome_player2, baralho_pessoal2);
+    Player *player3 = criarPlayer(nome_player3, baralho_pessoal3);
+
     break;
 
   case '2':
     system("clear");
-
-    Deck *baralho_m = criarDeck();
-    prencerDeck(baralho_m);
-
-    Deck *baralho_pessoal1_m = criarDeck();
-    Deck *baralho_pessoal2_m = criarDeck();
-    Deck *baralho_pessoal3_m = criarDeck();
-    dividirDeck(baralho_m, baralho_pessoal1_m, baralho_pessoal2_m,
-                baralho_pessoal3_m);
 
     printf("Entre com nome do player 1:\n");
     scanf("%s%*c", nome_player1);
@@ -196,11 +192,11 @@ void jogar() {
     printf("Entre com nome do player 3:\n");
     scanf("%s%*c", nome_player3);
 
-    Player *player1 = criarPlayer(nome_player1, baralho_pessoal1_m);
-    Player *player2 = criarPlayer(nome_player2, baralho_pessoal2_m);
-    Player *player3 = criarPlayer(nome_player3, baralho_pessoal3_m);
+    Player *player1_m = criarPlayer(nome_player1, baralho_pessoal1);
+    Player *player2_m = criarPlayer(nome_player2, baralho_pessoal2);
+    Player *player3_m = criarPlayer(nome_player3, baralho_pessoal3);
 
-    loopTurno(player1, player2, player3);
+    loopTurno(player1_m, player2_m, player3_m);
     break;
 
   default:

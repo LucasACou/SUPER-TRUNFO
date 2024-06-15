@@ -5,8 +5,8 @@
 #include <string.h>
 #include <time.h>
 
-Carta *criarCarta(char *tipo, float mobilidade, int vida, int ataque,
-                  float cura, float ultimate) {
+Carta *criarCarta(char *tipo, int mobilidade, int vida, int ataque,
+                  int cura, int ultimate) {
   Carta *nova_carta = malloc(sizeof(Carta));
   if (nova_carta != NULL) {
     nova_carta->tipo = tipo;

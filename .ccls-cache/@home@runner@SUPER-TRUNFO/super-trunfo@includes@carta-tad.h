@@ -31,33 +31,13 @@ typedef struct carta {
 } Carta;
 
 // CRIA CARTA
-Carta *criarCarta(char *tipo, float mobilidade, int vida, int ataque,
-                  float cura, float ultimate);
-
-// MODELAGEM CARTA
-void printVazio();
-void printNome(char *tipo, char *nome);
-void printIntInfoLine(char *atributo, int value, char *color, char *icone);
-void modeloCartaInteira(char *nome, Carta *carta, int x, int y);
+Carta *criarCarta(char *tipo, int mobilidade, int vida, int ataque,
+                  int cura, int ultimate);
 
 // CRIAR VETOR DE CARTAS , EMBARALHAR O VETOR E PRINTA CARTA
 Carta **criarVetorCartas();
 void embaralhar(Carta **vetorcartas);
 void printCarta(Carta *carta, int x, int y);
-
-void print0();
-void print1();
-void print2();
-void print3();
-void print4();
-void print5();
-void print6();
-void print7(char *color);
-void print8();
-void print9();
-void print10();
-void print11();
-void print12();
 void printCartaVirada(int x, int y);
 
 #endif // CARTA_H

@@ -85,12 +85,12 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
 
     char atributo;
 
-    do{
-        system("clear");
+    do {
+      system("clear");
 
       x = 15;
       // printa as cartas viradas dos players não atuais
-      for (int i = 0; i < MAX_PLAYERS; i++) { 
+      for (int i = 0; i < MAX_PLAYERS; i++) {
         Player *player_nao_atual = vetor_players[i];
         if (player_nao_atual != player_atual) {
           printCartaVirada(x, 1);
@@ -99,19 +99,18 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
           x += 50;
         }
       }
-      
-      //printar carta do players atual
+
+      // printar carta do players atual
       printCarta(player_atual->carta_atual, 40, 22);
       mover_cursor_xy(40, 40);
       printf("%s\n", player_atual->nome);
 
-      
       menuAtributos();
       scanf("%c", &atributo);
-      
-    }while(atributo != '1' && atributo != '2' && atributo != '3' && atributo != '4' && atributo != '5');
 
-      
+    } while (atributo != '1' && atributo != '2' && atributo != '3' &&
+             atributo != '4' && atributo != '5');
+
     system("clear");
     mover_cursor_xy(1, 41);
     compararAtributos(player1, player2, player3, atributo);
@@ -161,6 +160,7 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
     if (player1->deck_pessoal->length == 0 ||
         player2->deck_pessoal->length == 0 ||
         player3->deck_pessoal->length == 0) {
+      // empate 4 - 4
       if (player1->score == 4 && player2->score == 4) {
         printf("%s e %s empataram!\n", player1->nome, player2->nome);
         printf("fim de jogo\n");
@@ -176,6 +176,23 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
+      // empate 5 - 5
+      if (player1->score == 5 && player2->score == 5) {
+        printf("%s e %s empataram!\n", player1->nome, player2->nome);
+        printf("fim de jogo\n");
+        fim_de_jogo = 1;
+      }
+      if (player2->score == 5 && player3->score == 5) {
+        printf("%s e %s empataram!\n", player2->nome, player3->nome);
+        printf("fim de jogo\n");
+        fim_de_jogo = 1;
+      }
+      if (player1->score == 5 && player3->score == 5) {
+        printf("%s e %s empataram!\n", player1->nome, player3->nome);
+        printf("fim de jogo\n");
+        fim_de_jogo = 1;
+      }
+      //ganha com 5
       if (player1->score == 5) {
         printf("%s ganhou!\n", player1->nome);
         printf("fim de jogo\n");
@@ -195,7 +212,8 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
   }
 }
 
-void loopTurnoComp(Player *player1, Player *player2, Player *player3, char *name) {
+void loopTurnoComp(Player *player1, Player *player2, Player *player3,
+                   char *name) {
 
   Player *vetor_players[] = {player1, player2, player3};
   srand(time(0));
@@ -215,5 +233,12 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3, char *name
   int fim_de_jogo = 0;
   int x = 15;
   while (fim_de_jogo == 0) {
+    
+     player_atual = turno_atual->dado;
+
+    playerCompra(player1);
+    playerCompra(player2);
+    playerCompra(player3);
+    
   }
 }
