@@ -10,80 +10,80 @@
 // função que imprime a logo do jogo
 void printLogo() {
   printf(FG_ORANGE
-    "                       #############                       " RESET
-    "\n");
+         "                       #############                       " RESET
+         "\n");
   printf(FG_ORANGE
-    "                 #########################                 " RESET
-    "\n");
+         "                 #########################                 " RESET
+         "\n");
   printf(FG_ORANGE
-    "             #################################             " RESET
-    "\n");
+         "             #################################             " RESET
+         "\n");
   printf(FG_GRAY "         ," FG_ORANGE
-       " ##################################### " FG_GRAY
-       ",         " RESET "\n");
+                 " ##################################### " FG_GRAY
+                 ",         " RESET "\n");
   printf(FG_GRAY "       ,,,," FG_ORANGE
-       "   ########               ########   " FG_GRAY
-       ",,,,       " RESET "\n");
+                 "   ########               ########   " FG_GRAY
+                 ",,,,       " RESET "\n");
   printf(FG_GRAY "     ,,,,,,,," FG_ORANGE
-       "   ###        SUPER        ###   " FG_GRAY
-       ",,,,,,,,     " RESET "\n");
+                 "   ###        SUPER        ###   " FG_GRAY
+                 ",,,,,,,,     " RESET "\n");
   printf(FG_GRAY
-    "   ,,,,,,,,,,,             TRUNFO            ,,,,,,,,,,,   " RESET
-    "\n");
+         "   ,,,,,,,,,,,             TRUNFO            ,,,,,,,,,,,   " RESET
+         "\n");
   printf(FG_GRAY
-    "  ,,,,,,,,,,                                   ,,,,,,,,,,  " RESET
-    "\n");
+         "  ,,,,,,,,,,                                   ,,,,,,,,,,  " RESET
+         "\n");
   printf(FG_GRAY
-    " ,,,,,,,,,,                ,   ,                ,,,,,,,,,, " RESET
-    "\n");
+         " ,,,,,,,,,,                ,   ,                ,,,,,,,,,, " RESET
+         "\n");
   printf(FG_GRAY
-    ",,,,,,,,,,                ,,   ,,                ,,,,,,,,,," RESET
-    "\n");
+         ",,,,,,,,,,                ,,   ,,                ,,,,,,,,,," RESET
+         "\n");
   printf(FG_GRAY
-    ",,,,,,,,,               ,,,,   ,,,,               ,,,,,,,,," RESET
-    "\n");
+         ",,,,,,,,,               ,,,,   ,,,,               ,,,,,,,,," RESET
+         "\n");
   printf(FG_GRAY
-    ",,,,,,,,               ,,,,,   ,,,,,               ,,,,,,,," RESET
-    "\n");
+         ",,,,,,,,               ,,,,,   ,,,,,               ,,,,,,,," RESET
+         "\n");
   printf(FG_GRAY
-    ",,,,,,,,              ,,,,,,   ,,,,,,              ,,,,,,,," RESET
-    "\n");
+         ",,,,,,,,              ,,,,,,   ,,,,,,              ,,,,,,,," RESET
+         "\n");
   printf(FG_GRAY
-    ",,,,,,,,           ,,,,,,,,,   ,,,,,,,,,           ,,,,,,,," RESET
-    "\n");
+         ",,,,,,,,           ,,,,,,,,,   ,,,,,,,,,           ,,,,,,,," RESET
+         "\n");
   printf(FG_GRAY
-    ",,,,,,,,,       ,,,,,,,,,,,,   ,,,,,,,,,,,,       ,,,,,,,,," RESET
-    "\n");
+         ",,,,,,,,,       ,,,,,,,,,,,,   ,,,,,,,,,,,,       ,,,,,,,,," RESET
+         "\n");
   printf(FG_GRAY
-    ",,,,,,,,,,    ,,,,,,,,,,,,       ,,,,,,,,,,,,    ,,,,,,,,,," RESET
-    "\n");
+         ",,,,,,,,,,    ,,,,,,,,,,,,       ,,,,,,,,,,,,    ,,,,,,,,,," RESET
+         "\n");
   printf(FG_GRAY
-    " ,,,,,,,,,,,,,,,,,,,,,,,           ,,,,,,,,,,,,,,,,,,,,,,, " RESET
-    "\n");
+         " ,,,,,,,,,,,,,,,,,,,,,,,           ,,,,,,,,,,,,,,,,,,,,,,, " RESET
+         "\n");
   printf(FG_GRAY
-    "  ,,,,,,,,,,,,,,,,,,,                 ,,,,,,,,,,,,,,,,,,,  " RESET
-    "\n");
+         "  ,,,,,,,,,,,,,,,,,,,                 ,,,,,,,,,,,,,,,,,,,  " RESET
+         "\n");
   printf(FG_GRAY
-    "   ,,,,,,,,,,,,,,,,                     ,,,,,,,,,,,,,,,,   " RESET
-    "\n");
+         "   ,,,,,,,,,,,,,,,,                     ,,,,,,,,,,,,,,,,   " RESET
+         "\n");
   printf(FG_GRAY
-    "     ,,,,,,,,,,,,                         ,,,,,,,,,,,,     " RESET
-    "\n");
+         "     ,,,,,,,,,,,,                         ,,,,,,,,,,,,     " RESET
+         "\n");
   printf(FG_GRAY
-    "       ,,,,,,,,,,,,,,,               ,,,,,,,,,,,,,,,       " RESET
-    "\n");
+         "       ,,,,,,,,,,,,,,,               ,,,,,,,,,,,,,,,       " RESET
+         "\n");
   printf(FG_GRAY
-    "          ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,          " RESET
-    "\n");
+         "          ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,          " RESET
+         "\n");
   printf(FG_GRAY
-    "             ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,             " RESET
-    "\n");
+         "             ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,             " RESET
+         "\n");
   printf(FG_GRAY
-    "                 ,,,,,,,,,,,,,,,,,,,,,,,,,                 " RESET
-    "\n");
+         "                 ,,,,,,,,,,,,,,,,,,,,,,,,,                 " RESET
+         "\n");
   printf(FG_GRAY
-    "                       ,,,,,,,,,,,,,                       " RESET
-    "\n");
+         "                       ,,,,,,,,,,,,,                       " RESET
+         "\n");
   printf("\n");
 }
 
@@ -122,12 +122,12 @@ void menu() {
       printf(">> Multiplay: 3 jogadores\n");
       printf("\n2 - Como jogar\n");
       printf(">> Todo inicio de turno todos os players pegam uma carta, "
-        "distribuida de\nmaneira aleatoria, o player que começar deverá "
-        "escolher o atributo que desejar.\n");
+             "distribuida de\nmaneira aleatoria, o player que começar deverá "
+             "escolher o atributo que desejar.\n");
       printf(">> Após a escolha do player, quem possuir o maior valor deste "
-        "atributo\nganhará a rodada e ganhará um ponto no score.\n");
+             "atributo\nganhará a rodada e ganhará um ponto no score.\n");
       printf(">> Depois de terminar a rodada, será a vez do proximo jogador a "
-        "escolher\no atribuuto desejado.\n");
+             "escolher\no atribuuto desejado.\n");
       printf("\n3 - Condição de vitoria\n");
       printf(">> Quem alcançar 6 pontos primeiro vence o jogo.\n");
       printf(">> Entretanto ao final do jogo podem ocorrer empates.\n");
@@ -140,31 +140,31 @@ void menu() {
       system("clear");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY " " BG_BLACK FG_ORANGE " LUCAS ASSUNÇÂO        " BG_GRAY
-      " " RESET "\n");
+                     " " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY " " BG_BLACK FG_WHITE " MATRICULA  " FG_ORANGE
-      "2222130011 " BG_GRAY " " RESET "\n");
+                     "2222130011 " BG_GRAY " " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n\n");
 
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY " " BG_BLACK FG_ORANGE " LUCAS CALABRESI       " BG_GRAY
-      " " RESET "\n");
+                     " " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY " " BG_BLACK FG_WHITE " MATRICULA  " FG_ORANGE
-      "2222130037 " BG_GRAY " " RESET "\n");
+                     "2222130037 " BG_GRAY " " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n\n");
 
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY " " BG_BLACK FG_ORANGE " VICTOR E.             " BG_GRAY
-      " " RESET "\n");
+                     " " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY " " BG_BLACK FG_WHITE " MATRICULA  " FG_ORANGE
-      "2222130034 " BG_GRAY " " RESET "\n");
+                     "2222130034 " BG_GRAY " " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n");
       printf(BG_GRAY "                         " RESET "\n\n");
 
@@ -198,11 +198,11 @@ void jogar() {
   char nome_player2[50];
   char nome_player3[50];
 
-  //criação do deck e prenchimento aleatorio dele
+  // criação do deck e prenchimento aleatorio dele
   Deck *baralho = criarDeck();
   prencherDeck(baralho);
 
-  //divisão do deck original em 3 outros decks
+  // divisão do deck original em 3 outros decks
   Deck *baralho_pessoal1 = criarDeck();
   Deck *baralho_pessoal2 = criarDeck();
   Deck *baralho_pessoal3 = criarDeck();
