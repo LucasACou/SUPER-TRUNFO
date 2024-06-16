@@ -114,32 +114,60 @@ void menu() {
     case '2':
       
       system("clear");
-      printf("\n1 - Quantidade de jogadores\n");
-      printf(">Singleplay: 1 jogador\n");
-      printf(">Multiplay: 3 jogadores\n");
-      printf("\n2 - Jogo por turnos\n");
-      printf(">Todo inicio de turno todos os players compram uma carta\n");
-      printf(">É sorteado aleatoriamente o player que começará escolhendo o atributo\n");
-      printf(">Depois que o atributo for escolhido a carta do player que\ntiver maior numero deste atributo\nganhará a rodada e ganhará um ponto no score\n");
+      printf("\n1 - Modo de Jogo\n");
+      printf(">> Singleplay: 1 jogador\n");
+      printf(">> Multiplay: 3 jogadores\n");
+      printf("\n2 - Como jogar\n");
+      printf(">> Todo inicio de turno todos os players pegam uma carta, distribuida de\nmaneira aleatoria, o player que começar deverá escolher o atributo que desejar.\n");
+      printf(">> Após a escolha do player, quem possuir o maior valor deste atributo\nganhará a rodada e ganhará um ponto no score.\n");
+      printf(">> Depois de terminar a rodada, será a vez do proximo jogador a escolher\no atribuuto desejado.\n");
       printf("\n3 - Condição de vitoria\n");
-      printf(">Quem conseguir adiquirir um score de 6 pontos ganhará o jogo\n");
-      printf("O jogador que fizer x pontos ganha\n");
+      printf(">> Quem alcançar 6 pontos primeiro vence o jogo.\n");
+      printf(">> Entretanto ao final do jogo podem ocorrer empates.\n");
       printf("\nAperte enter pra voltar pro menu principal\n");
       getchar();
       getchar();
       break;
     case '3':
+
       system("clear");
-      printf("#----------------------------#\n");
-      printf("|   Lucas     - 2222130011   |\n");
-      printf("|   Calabresi - 2222130037   |\n");
-      printf("|   Victor    - 2222130034   |\n");
-      printf("#----------------------------#\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY" "BG_BLACK FG_ORANGE" LUCAS ASSUNÇÂO        "BG_GRAY" "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY" "BG_BLACK FG_WHITE" MATRICULA  "FG_ORANGE"2222130011 "BG_GRAY" "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n\n");
+  
+
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY" "BG_BLACK FG_ORANGE" LUCAS CALABRESI       "BG_GRAY" "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY" "BG_BLACK FG_WHITE" MATRICULA  "FG_ORANGE"2222130037 "BG_GRAY" "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n\n");
+
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY" "BG_BLACK FG_ORANGE" VICTOR E.             "BG_GRAY" "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY" "BG_BLACK FG_WHITE" MATRICULA  "FG_ORANGE"2222130034 "BG_GRAY" "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n");
+      printf(BG_GRAY"                         "RESET"\n\n");
+
+
+
+
+
+
+      
       printf("\nAperte enter pra voltar pro menu principal\n");
       getchar();
       getchar();
       break;
     case '4':
+      system("clear");
       exit(0);
     default:
       printf("Opção invalida\n");

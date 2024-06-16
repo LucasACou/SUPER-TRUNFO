@@ -52,6 +52,7 @@ Player *max(Player *player1, Player *player2, char atributo) {
       return player1;
     } else if (player1->carta_atual->vida ==
                player2->carta_atual->vida) { // se vida1 == vida2
+      
       Player *vetor_players[] = {player1, player2};
       srand(time(0));
       int resultado = rand() % 2;
@@ -65,6 +66,7 @@ Player *max(Player *player1, Player *player2, char atributo) {
       return player1;
     } else if (player1->carta_atual->ataque ==
                player2->carta_atual->ataque) { // se ataque1 == ataque2
+      
       Player *vetor_players[] = {player1, player2};
       srand(time(0));
       int resultado = rand() % 2;
@@ -78,6 +80,7 @@ Player *max(Player *player1, Player *player2, char atributo) {
       return player1;
     } else if (player1->carta_atual->cura ==
                player2->carta_atual->cura) { // se ataque1 == ataque2
+      
       Player *vetor_players[] = {player1, player2};
       srand(time(0));
       int resultado = rand() % 2;
@@ -91,6 +94,7 @@ Player *max(Player *player1, Player *player2, char atributo) {
       return player1;
     } else if (player1->carta_atual->ultimate ==
                player2->carta_atual->ultimate) { // se ataque1 == ataque2
+      
       Player *vetor_players[] = {player1, player2};
       srand(time(0));
       int resultado = rand() % 2;

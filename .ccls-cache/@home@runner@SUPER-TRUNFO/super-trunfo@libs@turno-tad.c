@@ -132,13 +132,28 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
       printf("%s\n", player_atual->nome);
 
       menuAtributos();
-      scanf("%c", &atributo);
+      scanf("%c%*c", &atributo);
 
     } while (atributo != '1' && atributo != '2' && atributo != '3' &&
              atributo != '4' && atributo != '5');
 
     system("clear");
     mover_cursor_xy(1, 41);
+    if(atributo == '1'){
+      printf("O atributo escolhido foi mobilidade\n");
+    }
+    if(atributo == '2'){
+      printf("O atributo escolhido foi vida\n");
+    }
+    if(atributo == '3'){
+      printf("O atributo escolhido foi ataque\n");
+    }
+    if(atributo == '4'){
+      printf("O atributo escolhido foi cura\n");
+    }
+    if(atributo == '5'){
+      printf("O atributo escolhido foi ultimate\n");
+    }
     compararAtributos(player1, player2, player3, atributo);
 
     x = 15;
@@ -156,13 +171,13 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
     mover_cursor_xy(40, 40);
     printf("%s\n", player_atual->nome);
 
-    mover_cursor_xy(1, 43);
+    mover_cursor_xy(1, 44);
 
     for (int i = 0; i < MAX_PLAYERS; i++) {
       printf("score %s: %d\n", vetor_players[i]->nome, vetor_players[i]->score);
     }
+    printf("\nAperte enter para continuar o jogo\n");
 
-    getchar();
     getchar();
 
     turno_atual = turno_atual->prox;
@@ -291,8 +306,7 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
 
       if (player_atual->nome == nome) {
         menuAtributos();
-        scanf("%c", &atributo);
-        getchar();
+        scanf("%c%*c", &atributo);
       }
       if(player_atual->nome != nome) {
         atributo = maxAtributosComp(player_atual);
@@ -304,19 +318,19 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
     system("clear");
     mover_cursor_xy(1, 41);
     if(atributo == '1'){
-      printf("O atributo escolhido foi mobilidade");
+      printf("O atributo escolhido foi mobilidade\n");
     }
     if(atributo == '2'){
-      printf("O atributo escolhido foi vida");
+      printf("O atributo escolhido foi vida\n");
     }
     if(atributo == '3'){
-      printf("O atributo escolhido foi ataque");
+      printf("O atributo escolhido foi ataque\n");
     }
     if(atributo == '4'){
-      printf("O atributo escolhido foi cura");
+      printf("O atributo escolhido foi cura\n");
     }
     if(atributo == '5'){
-      printf("O atributo escolhido foi ultimate");
+      printf("O atributo escolhido foi ultimate\n");
     }
     compararAtributos(player1, player2, player3, atributo);
 
@@ -335,11 +349,12 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
     mover_cursor_xy(40, 40);
     printf("%s\n", player_atual->nome);
 
-    mover_cursor_xy(1, 43);
+    mover_cursor_xy(1, 44);
 
     for (int i = 0; i < MAX_PLAYERS; i++) {
       printf("score %s: %d\n", vetor_players[i]->nome, vetor_players[i]->score);
     }
+    printf("\nAperte enter para continuar o jogo\n");
 
     getchar();
 
