@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+// função para a criar nós de turno que têm como dado um player
 No_Turno *criarNoTurno(Player *dado) {
   No_Turno *novo_no = malloc(sizeof(No_Turno));
   if (novo_no != NULL) {
@@ -15,6 +16,9 @@ No_Turno *criarNoTurno(Player *dado) {
   }
   return novo_no;
 }
+
+// função que cria a lista circular encadeada que quando chega no final volta
+// pro inicio e fica assim ate acabar o jogo
 
 Lista_Turno *criarListaTurno() {
   Lista_Turno *lista_turno = malloc(sizeof(Lista_Turno));
@@ -25,6 +29,8 @@ Lista_Turno *criarListaTurno() {
   return lista_turno;
 }
 
+// funcão para inserir cada nó na lista de forma que vire uma lista circular
+// encadeada
 void inserirInicio(Lista_Turno *lista, Player **dado) {
   if (lista != NULL) {
     for (int i = 0; i < MAX_PLAYERS; i++) {
@@ -49,18 +55,30 @@ void inserirInicio(Lista_Turno *lista, Player **dado) {
   }
 }
 
+// função utilizada para comparar dois numeros para saber que é o maior
 int compAtributo(int x, int y) {
   if (x > y) {
     return x;
   }
   return y;
 }
+
+// função utilizada pelos bot para escolher o atributo com o maior valor para
+// ser jogado automaticamente
 char maxAtributosComp(Player *player) {
   int resultado = compAtributo(
-      compAtributo(compAtributo(compAtributo(player->carta_atual->mobilidade,
-                                             player->carta_atual->vida),
-                                player->carta_atual->ataque),
-                   player->carta_atual->cura),
+      compAtributo(
+          compAtributo(
+              compAtributo(
+                  player->carta_atual
+                      ->mobilidade, // uso de recursão para comparar todos os
+                                    // atributos das cartas para saber qual
+                                    // maior, retornando assim o numero q
+                                    // representa o atributo no menu de
+                                    // atributos
+                  player->carta_atual->vida),
+              player->carta_atual->ataque),
+          player->carta_atual->cura),
       player->carta_atual->ultimate);
 
   if (resultado == player->carta_atual->mobilidade)
@@ -75,6 +93,7 @@ char maxAtributosComp(Player *player) {
   return '5';
 }
 
+// funcao de loop de turno para o multiplayer
 void loopTurno(Player *player1, Player *player2, Player *player3) {
 
   // antes de tudo, criar lista e inserir os players na lista
@@ -101,9 +120,9 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
 
   while (fim_de_jogo == 0) {
 
-    // inicio do turno todos players compram umna carta
-
     player_atual = turno_atual->dado;
+
+    // inicio do turno todos players compram uma carta
 
     playerCompra(player1);
     playerCompra(player2);
@@ -139,21 +158,23 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
 
     system("clear");
     mover_cursor_xy(1, 41);
-    if(atributo == '1'){
+    //nesta parte é printado o nome do atributo q foi escolhido
+    if (atributo == '1') {
       printf("O atributo escolhido foi mobilidade\n");
     }
-    if(atributo == '2'){
+    if (atributo == '2') {
       printf("O atributo escolhido foi vida\n");
     }
-    if(atributo == '3'){
+    if (atributo == '3') {
       printf("O atributo escolhido foi ataque\n");
     }
-    if(atributo == '4'){
+    if (atributo == '4') {
       printf("O atributo escolhido foi cura\n");
     }
-    if(atributo == '5'){
+    if (atributo == '5') {
       printf("O atributo escolhido foi ultimate\n");
     }
+    // aqui acontece a comparação do turno
     compararAtributos(player1, player2, player3, atributo);
 
     x = 15;
@@ -173,7 +194,7 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
 
     mover_cursor_xy(1, 44);
 
-    for (int i = 0; i < MAX_PLAYERS; i++) {
+    for (int i = 0; i < MAX_PLAYERS; i++) {// printa o score de cada player ao final do turno
       printf("score %s: %d\n", vetor_players[i]->nome, vetor_players[i]->score);
     }
     printf("\nAperte enter para continuar o jogo\n");
@@ -207,44 +228,44 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player2->score == 4 && player3->score == 4) {
+      else if (player2->score == 4 && player3->score == 4) {
         printf("%s e %s empataram!\n", player2->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player1->score == 4 && player3->score == 4) {
+      else if (player1->score == 4 && player3->score == 4) {
         printf("%s e %s empataram!\n", player1->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
       // empate 5 - 5
-      if (player1->score == 5 && player2->score == 5) {
+      else if (player1->score == 5 && player2->score == 5) {
         printf("%s e %s empataram!\n", player1->nome, player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player2->score == 5 && player3->score == 5) {
+      else if (player2->score == 5 && player3->score == 5) {
         printf("%s e %s empataram!\n", player2->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player1->score == 5 && player3->score == 5) {
+      else if (player1->score == 5 && player3->score == 5) {
         printf("%s e %s empataram!\n", player1->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
       // ganha com 5
-      if (player1->score == 5) {
+      else if (player1->score == 5) {
         printf("%s ganhou!\n", player1->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player2->score == 5) {
+      else if (player2->score == 5) {
         printf("%s ganhou!\n", player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player3->score == 5) {
+      else if (player3->score == 5) {
         printf("%s ganhou!\n", player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
@@ -253,8 +274,11 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
   }
 }
 
+// funcao loop de turno para o singleplay
 void loopTurnoComp(Player *player1, Player *player2, Player *player3,
                    char *nome) {
+
+  // antes de tudo, criar lista e inserir os players na lista
 
   Player *vetor_players[] = {player1, player2, player3};
   srand(time(NULL));
@@ -273,10 +297,12 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
 
   int fim_de_jogo = 0;
   int x = 15;
-  
+
   while (fim_de_jogo == 0) {
 
     player_atual = turno_atual->dado;
+
+    // inicio do turno todos players compram uma carta
 
     playerCompra(player1);
     playerCompra(player2);
@@ -304,11 +330,11 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
       mover_cursor_xy(40, 40);
       printf("%s\n", player_atual->nome);
 
-      if (player_atual->nome == nome) {
+      if (player_atual->nome == nome) { // quando é o player real
         menuAtributos();
         scanf("%c%*c", &atributo);
       }
-      if(player_atual->nome != nome) {
+      if (player_atual->nome != nome) { // quando é um bot
         atributo = maxAtributosComp(player_atual);
       }
 
@@ -317,21 +343,23 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
 
     system("clear");
     mover_cursor_xy(1, 41);
-    if(atributo == '1'){
+    //nesta parte é printado o nome do atributo q foi escolhido
+    if (atributo == '1') {
       printf("O atributo escolhido foi mobilidade\n");
     }
-    if(atributo == '2'){
+    if (atributo == '2') {
       printf("O atributo escolhido foi vida\n");
     }
-    if(atributo == '3'){
+    if (atributo == '3') {
       printf("O atributo escolhido foi ataque\n");
     }
-    if(atributo == '4'){
+    if (atributo == '4') {
       printf("O atributo escolhido foi cura\n");
     }
-    if(atributo == '5'){
+    if (atributo == '5') {
       printf("O atributo escolhido foi ultimate\n");
     }
+    // aqui acontece a comparação do turno
     compararAtributos(player1, player2, player3, atributo);
 
     x = 15;
@@ -351,7 +379,7 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
 
     mover_cursor_xy(1, 44);
 
-    for (int i = 0; i < MAX_PLAYERS; i++) {
+    for (int i = 0; i < MAX_PLAYERS; i++) { // printa o score de cada player ao final do turno
       printf("score %s: %d\n", vetor_players[i]->nome, vetor_players[i]->score);
     }
     printf("\nAperte enter para continuar o jogo\n");
@@ -385,44 +413,44 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player2->score == 4 && player3->score == 4) {
+      else if (player2->score == 4 && player3->score == 4) {
         printf("%s e %s empataram!\n", player2->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player1->score == 4 && player3->score == 4) {
+      else if (player1->score == 4 && player3->score == 4) {
         printf("%s e %s empataram!\n", player1->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
       // empate 5 - 5
-      if (player1->score == 5 && player2->score == 5) {
+      else if (player1->score == 5 && player2->score == 5) {
         printf("%s e %s empataram!\n", player1->nome, player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player2->score == 5 && player3->score == 5) {
+      else if (player2->score == 5 && player3->score == 5) {
         printf("%s e %s empataram!\n", player2->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player1->score == 5 && player3->score == 5) {
+      else if (player1->score == 5 && player3->score == 5) {
         printf("%s e %s empataram!\n", player1->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
       // ganha com 5
-      if (player1->score == 5) {
+      else if (player1->score == 5) {
         printf("%s ganhou!\n", player1->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player2->score == 5) {
+      else if (player2->score == 5) {
         printf("%s ganhou!\n", player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
       }
-      if (player3->score == 5) {
+      else if (player3->score == 5) {
         printf("%s ganhou!\n", player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
@@ -430,4 +458,3 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
     }
   }
 }
-

@@ -19,8 +19,7 @@ Carta *criarCarta(char *tipo, int mobilidade, int vida, int ataque, int cura,
   return nova_carta;
 }
 
-// MODELAGEM CARTAS
-
+// modelagem da carta
 void printVazio() { printf(BG_GRAY "                         " RESET "\n"); }
 
 void printNome(char *tipo, char *nome) {
@@ -34,6 +33,8 @@ void printIntInfoLine(char *atributo, int value, char *color, char *icone) {
          color, icone, atributo, value);
 }
 
+// modelo inteiro da carta
+// x e y sao usados para selecionar o lugar que sera printada a carta
 void modeloCartaInteira(char *nome, Carta *carta, int x, int y) {
   mover_cursor_xy(x, y++);
   printVazio();
@@ -73,7 +74,7 @@ void modeloCartaInteira(char *nome, Carta *carta, int x, int y) {
   printVazio();
 }
 
-// Criar Vetor de Cartas
+// criar vetor de cartas
 Carta **criarVetorCartas() {
   Carta **vetorCartas = malloc(MAX_CARTAS * sizeof(Carta *));
   if (vetorCartas != NULL) {
@@ -115,11 +116,11 @@ Carta **criarVetorCartas() {
   return vetorCartas;
 }
 
-// Embaralhar Vetor de Cartas
+// embaralhar vetor de cartas
 void embaralhar(Carta **vetorcartas) {
-  
+
   srand(time(NULL));
-  
+
   for (int i = 0; i < MAX_CARTAS; i++) {
     int j = rand() % MAX_CARTAS;
     Carta *temp = vetorcartas[i];
@@ -128,7 +129,7 @@ void embaralhar(Carta **vetorcartas) {
   }
 }
 
-// Printar cartas
+// printar cartas
 void printCarta(Carta *carta, int x, int y) {
   if (strcmp(carta->tipo, "SS") == 0) { // Carta SS
     modeloCartaInteira("ECHO", carta, x, y);
@@ -234,6 +235,8 @@ void printCarta(Carta *carta, int x, int y) {
   }
 }
 
+
+//modelagem do print da carta virada
 void print0() { printf(BG_WHITE "                         " RESET "\n"); }
 void print1() {
   printf(BG_ORANGE "  " BG_GRAY "                     " BG_ORANGE "  " RESET
@@ -289,6 +292,7 @@ void print12() {
                   " " RESET "\n");
 }
 
+//modelo inteiro de carta virada
 void printCartaVirada(int x, int y) {
   mover_cursor_xy(x, y++);
   print1();

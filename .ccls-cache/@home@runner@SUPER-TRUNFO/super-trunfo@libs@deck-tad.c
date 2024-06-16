@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Função para criar Nós
+// função para criar nós do deck que têm como dado uma carta
 No_Deck *criarNoDeck(Carta *dado) {
   No_Deck *novo_no = malloc(sizeof(No_Deck));
   if (novo_no != NULL) {
@@ -13,7 +13,7 @@ No_Deck *criarNoDeck(Carta *dado) {
   return novo_no;
 }
 
-// Função para criar Decks
+// função para criar Deck
 Deck *criarDeck() {
   Deck *deck = malloc(sizeof(Deck));
   if (deck != NULL) {
@@ -23,7 +23,7 @@ Deck *criarDeck() {
   return deck;
 }
 
-// Função para prencer o Deck usando o Vetor de Cartas embaralhado
+// função para prencer o deck usando o vetor de cartas embaralhado
 void prencherDeck(Deck *deck) {
   if (deck != NULL) {
     Carta **vetorcartas = criarVetorCartas();
@@ -39,7 +39,7 @@ void prencherDeck(Deck *deck) {
   }
 }
 
-// Função que dividi o Deck inteiro em 3 menores Decks
+// Função que dividi o deck inteiro em 3 menores Decks
 void dividirDeck(Deck *deck, Deck *deck1, Deck *deck2, Deck *deck3) {
   if (deck != NULL && deck->length >= 3) {
 
