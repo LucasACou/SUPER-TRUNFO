@@ -26,7 +26,6 @@
 typedef struct carta {
   char *tipo;
   int vida, ataque, mobilidade, cura, ultimate;
-
 } Carta;
 
 // CRIA CARTA

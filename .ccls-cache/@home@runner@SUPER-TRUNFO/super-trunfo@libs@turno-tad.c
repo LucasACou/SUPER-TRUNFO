@@ -292,6 +292,7 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
       if (player_atual->nome == nome) {
         menuAtributos();
         scanf("%c", &atributo);
+        getchar();
       }
       if(player_atual->nome != nome) {
         atributo = maxAtributosComp(player_atual);
@@ -302,6 +303,21 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
 
     system("clear");
     mover_cursor_xy(1, 41);
+    if(atributo == '1'){
+      printf("O atributo escolhido foi mobilidade");
+    }
+    if(atributo == '2'){
+      printf("O atributo escolhido foi vida");
+    }
+    if(atributo == '3'){
+      printf("O atributo escolhido foi ataque");
+    }
+    if(atributo == '4'){
+      printf("O atributo escolhido foi cura");
+    }
+    if(atributo == '5'){
+      printf("O atributo escolhido foi ultimate");
+    }
     compararAtributos(player1, player2, player3, atributo);
 
     x = 15;
@@ -325,7 +341,6 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
       printf("score %s: %d\n", vetor_players[i]->nome, vetor_players[i]->score);
     }
 
-    getchar();
     getchar();
 
     turno_atual = turno_atual->prox;

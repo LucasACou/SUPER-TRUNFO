@@ -92,32 +92,37 @@ void menu() {
 
   do {
 
-    system("clear");
+    do {
+      system("clear");
 
-    printLogo();
+      printLogo();
 
-    printf("[1] - Jogar\n");
-    printf("[2] - Regras\n");
-    printf("[3] - Creditos\n");
-    printf("[4] - Sair\n\n");
-    printf("\n");
-    printf("Escolha alguma opção:\n");
+      printf("[1] - Jogar\n");
+      printf("[2] - Regras\n");
+      printf("[3] - Creditos\n");
+      printf("[4] - Sair\n\n");
+      printf("\n");
+      printf("Escolha alguma opção:\n");
+      scanf("%s", &numero);
 
-    scanf("%s", &numero);
+    } while (numero != '1' && numero != '2' && numero != '3' && numero != '4');
 
     switch (numero) {
 
     case '1':
       break;
     case '2':
+      
       system("clear");
-      printf("Quantidade de jogadores são 3\n");
-      printf("Jogo por turnos e acada turno recebe uma carta diferente\n");
-      printf("Em cada turno o player que começa escolhe o tipo que sera "
-             "disputado\n");
-      printf("Pegar os emotes\n");
-      printf("Apos a pessoa que inicia o turno escolher o tipo que sera "
-             "disputado\n");
+      printf("\n1 - Quantidade de jogadores\n");
+      printf(">Singleplay: 1 jogador\n");
+      printf(">Multiplay: 3 jogadores\n");
+      printf("\n2 - Jogo por turnos\n");
+      printf(">Todo inicio de turno todos os players compram uma carta\n");
+      printf(">É sorteado aleatoriamente o player que começará escolhendo o atributo\n");
+      printf(">Depois que o atributo for escolhido a carta do player que\ntiver maior numero deste atributo\nganhará a rodada e ganhará um ponto no score\n");
+      printf("\n3 - Condição de vitoria\n");
+      printf(">Quem conseguir adiquirir um score de 6 pontos ganhará o jogo\n");
       printf("O jogador que fizer x pontos ganha\n");
       printf("\nAperte enter pra voltar pro menu principal\n");
       getchar();
@@ -125,11 +130,11 @@ void menu() {
       break;
     case '3':
       system("clear");
-      printf("└-----------------------┘\n");
-      printf("|   Lucas - Matricula   |\n");
-      printf("|   Lucas - Matricula   |\n");
-      printf("|   Eu    - 2222130034  |\n");
-      printf("└-----------------------┘\n");
+      printf("#----------------------------#\n");
+      printf("|   Lucas     - 2222130011   |\n");
+      printf("|   Calabresi - 2222130037   |\n");
+      printf("|   Victor    - 2222130034   |\n");
+      printf("#----------------------------#\n");
       printf("\nAperte enter pra voltar pro menu principal\n");
       getchar();
       getchar();
@@ -179,8 +184,8 @@ void jogar() {
     Player *player1 = criarPlayer(nome_player1, baralho_pessoal1);
     Player *player2 = criarPlayer(nome_player2, baralho_pessoal2);
     Player *player3 = criarPlayer(nome_player3, baralho_pessoal3);
-         
-       loopTurnoComp(player1, player2, player3, nome_player1);
+
+    loopTurnoComp(player1, player2, player3, nome_player1);
     break;
 
   case '2':

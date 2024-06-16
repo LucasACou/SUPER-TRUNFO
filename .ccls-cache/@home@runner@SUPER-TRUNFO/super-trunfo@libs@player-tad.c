@@ -22,12 +22,12 @@ Carta *playerCompra(Player *player) {
   return player->carta_atual;
 }
 void menuAtributos() {
-  printf("\nEscolha um atributo:\n\n");
-  printf("[1] - mobilidade\n");
+  printf("\n[1] - mobilidade\n");
   printf("[2] - vida\n");
   printf("[3] - ataque\n");
   printf("[4] - cura\n");
   printf("[5] - ultimate\n");
+  printf("\nEscolha um atributo:\n");
 }
 
 Player *max(Player *player1, Player *player2, char atributo) {
@@ -106,5 +106,5 @@ void compararAtributos(Player *player1, Player *player2, Player *player3,
                        char atributo) {
   Player *vencedor = max(max(player1, player2, atributo), player3, atributo);
   vencedor->score++;
-  printf("\njogador vencedor do turno atual: %s\n", vencedor->nome);
+  printf("\nJogador vencedor do turno atual: %s\n", vencedor->nome);
 }
