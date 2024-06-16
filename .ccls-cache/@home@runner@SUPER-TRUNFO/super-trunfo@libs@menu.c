@@ -24,10 +24,10 @@ void printLogo() {
                  "   ########               ########   " FG_GRAY
                  ",,,,       " RESET "\n");
   printf(FG_GRAY "     ,,,,,,,," FG_ORANGE
-                 "   ###                     ###   " FG_GRAY
+                 "   ###        SUPER        ###   " FG_GRAY
                  ",,,,,,,,     " RESET "\n");
   printf(FG_GRAY
-         "   ,,,,,,,,,,,                               ,,,,,,,,,,,   " RESET
+         "   ,,,,,,,,,,,             TRUNFO            ,,,,,,,,,,,   " RESET
          "\n");
   printf(FG_GRAY
          "  ,,,,,,,,,,                                   ,,,,,,,,,,  " RESET
