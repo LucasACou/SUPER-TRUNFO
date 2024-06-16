@@ -159,7 +159,7 @@ void jogar() {
   char nome_player3[50];
 
   Deck *baralho = criarDeck();
-  prencerDeck(baralho);
+  prencherDeck(baralho);
 
   Deck *baralho_pessoal1 = criarDeck();
   Deck *baralho_pessoal2 = criarDeck();
@@ -179,7 +179,8 @@ void jogar() {
     Player *player1 = criarPlayer(nome_player1, baralho_pessoal1);
     Player *player2 = criarPlayer(nome_player2, baralho_pessoal2);
     Player *player3 = criarPlayer(nome_player3, baralho_pessoal3);
-
+         
+       loopTurnoComp(player1, player2, player3, nome_player1);
     break;
 
   case '2':

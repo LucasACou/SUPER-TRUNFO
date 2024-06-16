@@ -16,7 +16,7 @@ typedef struct deck {
 
 No_Deck *criarNoDeck(Carta *carta);
 Deck *criarDeck();
-void prencerDeck(Deck *deck);
+void prencherDeck(Deck *deck);
 
 void dividirDeck(Deck *deck, Deck *deck1, Deck *deck2, Deck *deck3);
 Carta *verTopo(Deck *deck);

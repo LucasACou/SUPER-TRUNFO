@@ -20,6 +20,8 @@ No_Turno *criarNoTurno(Player *dado);
 Lista_Turno *criarListaTurno();
 void inserirInicio(Lista_Turno *lista, Player **dado);
 void loopTurno(Player *player1, Player *player2, Player *player3);
+void loopTurnoComp(Player *player1, Player *player2, Player *player3,
+ char *nome);
 
 
 #endif // TURNO_H

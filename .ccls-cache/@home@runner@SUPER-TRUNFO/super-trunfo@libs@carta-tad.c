@@ -5,8 +5,8 @@
 #include <string.h>
 #include <time.h>
 
-Carta *criarCarta(char *tipo, int mobilidade, int vida, int ataque,
-                  int cura, int ultimate) {
+Carta *criarCarta(char *tipo, int mobilidade, int vida, int ataque, int cura,
+                  int ultimate) {
   Carta *nova_carta = malloc(sizeof(Carta));
   if (nova_carta != NULL) {
     nova_carta->tipo = tipo;
@@ -117,9 +117,10 @@ Carta **criarVetorCartas() {
 
 // Embaralhar Vetor de Cartas
 void embaralhar(Carta **vetorcartas) {
-
+  
+  srand(time(NULL));
+  
   for (int i = 0; i < MAX_CARTAS; i++) {
-    srand(time(0));
     int j = rand() % MAX_CARTAS;
     Carta *temp = vetorcartas[i];
     vetorcartas[i] = vetorcartas[j];

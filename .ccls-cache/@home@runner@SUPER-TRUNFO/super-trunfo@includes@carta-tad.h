@@ -25,14 +25,13 @@
 
 typedef struct carta {
   char *tipo;
-  int vida, ataque;
-  float mobilidade, cura, ultimate;
+  int vida, ataque, mobilidade, cura, ultimate;
 
 } Carta;
 
 // CRIA CARTA
-Carta *criarCarta(char *tipo, int mobilidade, int vida, int ataque,
-                  int cura, int ultimate);
+Carta *criarCarta(char *tipo, int mobilidade, int vida, int ataque, int cura,
+                  int ultimate);
 
 // CRIAR VETOR DE CARTAS , EMBARALHAR O VETOR E PRINTA CARTA
 Carta **criarVetorCartas();

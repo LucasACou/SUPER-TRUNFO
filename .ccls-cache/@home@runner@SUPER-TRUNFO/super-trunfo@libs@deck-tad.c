@@ -24,7 +24,7 @@ Deck *criarDeck() {
 }
 
 // Função para prencer o Deck usando o Vetor de Cartas embaralhado
-void prencerDeck(Deck *deck) {
+void prencherDeck(Deck *deck) {
   if (deck != NULL) {
     Carta **vetorcartas = criarVetorCartas();
     embaralhar(vetorcartas);
