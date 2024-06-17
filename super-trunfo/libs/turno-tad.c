@@ -158,7 +158,7 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
 
     system("clear");
     mover_cursor_xy(1, 41);
-    //nesta parte é printado o nome do atributo q foi escolhido
+    // nesta parte é printado o nome do atributo q foi escolhido
     if (atributo == '1') {
       printf("O atributo escolhido foi mobilidade\n");
     }
@@ -194,7 +194,8 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
 
     mover_cursor_xy(1, 44);
 
-    for (int i = 0; i < MAX_PLAYERS; i++) {// printa o score de cada player ao final do turno
+    for (int i = 0; i < MAX_PLAYERS;
+         i++) { // printa o score de cada player ao final do turno
       printf("score %s: %d\n", vetor_players[i]->nome, vetor_players[i]->score);
     }
     printf("\nAperte enter para continuar o jogo\n");
@@ -227,13 +228,11 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
         printf("%s e %s empataram!\n", player1->nome, player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player2->score == 4 && player3->score == 4) {
+      } else if (player2->score == 4 && player3->score == 4) {
         printf("%s e %s empataram!\n", player2->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player1->score == 4 && player3->score == 4) {
+      } else if (player1->score == 4 && player3->score == 4) {
         printf("%s e %s empataram!\n", player1->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
@@ -243,13 +242,11 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
         printf("%s e %s empataram!\n", player1->nome, player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player2->score == 5 && player3->score == 5) {
+      } else if (player2->score == 5 && player3->score == 5) {
         printf("%s e %s empataram!\n", player2->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player1->score == 5 && player3->score == 5) {
+      } else if (player1->score == 5 && player3->score == 5) {
         printf("%s e %s empataram!\n", player1->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
@@ -259,13 +256,11 @@ void loopTurno(Player *player1, Player *player2, Player *player3) {
         printf("%s ganhou!\n", player1->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player2->score == 5) {
+      } else if (player2->score == 5) {
         printf("%s ganhou!\n", player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player3->score == 5) {
+      } else if (player3->score == 5) {
         printf("%s ganhou!\n", player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
@@ -343,7 +338,7 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
 
     system("clear");
     mover_cursor_xy(1, 41);
-    //nesta parte é printado o nome do atributo q foi escolhido
+    // nesta parte é printado o nome do atributo q foi escolhido
     if (atributo == '1') {
       printf("O atributo escolhido foi mobilidade\n");
     }
@@ -379,7 +374,8 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
 
     mover_cursor_xy(1, 44);
 
-    for (int i = 0; i < MAX_PLAYERS; i++) { // printa o score de cada player ao final do turno
+    for (int i = 0; i < MAX_PLAYERS;
+         i++) { // printa o score de cada player ao final do turno
       printf("score %s: %d\n", vetor_players[i]->nome, vetor_players[i]->score);
     }
     printf("\nAperte enter para continuar o jogo\n");
@@ -412,13 +408,11 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
         printf("%s e %s empataram!\n", player1->nome, player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player2->score == 4 && player3->score == 4) {
+      } else if (player2->score == 4 && player3->score == 4) {
         printf("%s e %s empataram!\n", player2->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player1->score == 4 && player3->score == 4) {
+      } else if (player1->score == 4 && player3->score == 4) {
         printf("%s e %s empataram!\n", player1->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
@@ -428,13 +422,11 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
         printf("%s e %s empataram!\n", player1->nome, player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player2->score == 5 && player3->score == 5) {
+      } else if (player2->score == 5 && player3->score == 5) {
         printf("%s e %s empataram!\n", player2->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player1->score == 5 && player3->score == 5) {
+      } else if (player1->score == 5 && player3->score == 5) {
         printf("%s e %s empataram!\n", player1->nome, player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
@@ -444,13 +436,11 @@ void loopTurnoComp(Player *player1, Player *player2, Player *player3,
         printf("%s ganhou!\n", player1->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player2->score == 5) {
+      } else if (player2->score == 5) {
         printf("%s ganhou!\n", player2->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
-      }
-      else if (player3->score == 5) {
+      } else if (player3->score == 5) {
         printf("%s ganhou!\n", player3->nome);
         printf("fim de jogo\n");
         fim_de_jogo = 1;
