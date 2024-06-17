@@ -184,15 +184,15 @@ void menu() {
 
 // função que roda o jogo completo
 void jogar() {
-
-  system("clear");
-
   char opcoes_dificuldade;
 
-  printf("[1] - Singleplayer\n");
-  printf("[2] - Multiplayer\n");
-  printf("\nEscolha alguma opção:\n");
-  scanf("%s", &opcoes_dificuldade);
+  do {
+    system("clear");
+    printf("[1] - Singleplayer\n");
+    printf("[2] - Multiplayer\n");
+    printf("\nEscolha alguma opção:\n");
+    scanf("%s", &opcoes_dificuldade);
+  } while (opcoes_dificuldade != '1' && opcoes_dificuldade != '2');
 
   char nome_player1[50];
   char nome_player2[50];
